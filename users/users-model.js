@@ -2,12 +2,17 @@ const db = require('../data/db-conn')
 
 module.exports = {
     find,
+    findBy,
     findById,
     add
 }
 
 function find() {
     return db('users').select('id', 'username').orderBy('id')
+}
+
+function findBy(filter) {
+    return db('users').where(filter).orderBy('id')
 }
 
 function findById(id) {

@@ -6,6 +6,7 @@ const server = express()
 
 //Routers
 const usersRouter = require('../users/users-router')
+const authRouter = require('../auth/auth-router')
 
 //Middleware
 server.use(helmet())
@@ -14,6 +15,7 @@ server.use(cors())
 
 //Endpoints
 server.use('/api/users', usersRouter)
+server.use('/api/auth', authRouter)
 
 server.get('/', (req, res) => {
     res.status(200).json({ api: 'up and running!' })
